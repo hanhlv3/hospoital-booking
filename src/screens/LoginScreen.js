@@ -15,6 +15,7 @@ import {
 
 import Logo from '../components/Logo'
 import InputData from '../components/InputData'
+import SignInWithOAuth from '../components/SignInWithOAuth'
 export default function LoginScreen() {
     return (
         <SafeAreaView>
@@ -29,12 +30,12 @@ export default function LoginScreen() {
                     </Text>
                     <View className="mt-5 mb-7">
                         <TextInput
-                            className="mb-2 px-3 text-black"
+                            className="mb-2 px-3 py-2 text-black"
                             placeholder="Phone number or Email"
                             style={[styles.input, styles.width_form]}
                         />
                         <TextInput
-                            className="mb-2 px-3 text-black"
+                            className="mb-2 px-3 py-2 text-black"
                             placeholder="Password"
                             style={[styles.input, styles.width_form]}
                             secureTextEntry={true}
@@ -53,19 +54,7 @@ export default function LoginScreen() {
                         Forget password?
                     </Text>
                     <Text className="text-blue-800 font-medium">Register</Text>
-
-                    <TouchableOpacity
-                        className="d-flex flex-row py-1 justify-center items-center bg-white mt-9"
-                        style={[styles.width_form, styles.google]}
-                    >
-                        <Text className="text-black text-lg font-medium mr-1">
-                            Sign up with Google
-                        </Text>
-                        <Image
-                            className="w-11 h-10"
-                            source={require('../../assets/images/google.jpg')}
-                        />
-                    </TouchableOpacity>
+                    <SignInWithOAuth />
                 </View>
             </View>
         </SafeAreaView>

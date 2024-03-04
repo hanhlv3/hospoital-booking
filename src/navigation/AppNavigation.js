@@ -87,14 +87,6 @@ export default function AppNavigation() {
                     }}
                 />
             </Tab.Navigator>
-            {/* <Stack.Navigator
-                screenOptions={{ headerShown: false }}
-                initialRouteName={isLoged ? 'home' : 'login'}
-            >
-                <Stack.Screen name="login" component={LoginScreen} />
-                <Stack.Screen name="register" component={RegisterScreen} />
-                <Stack.Screen name="home" component={TabNavigation} />
-            </Stack.Navigator> */}
         </NavigationContainer>
     )
 }

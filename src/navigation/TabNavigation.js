@@ -2,17 +2,17 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { useNavigationState  } from '@react-navigation/native'
+
+import { useNavigationState } from '@react-navigation/native'
+import { FontAwesome } from '@expo/vector-icons'
 
 import Home from '../screens/Home'
 import LoginScreen from '../screens/LoginScreen'
+import Profile from '../screens/Profile'
+import Appoiment from '../screens/Appoiment'
 
 const Tab = createBottomTabNavigator()
 export default function TabNavigation() {
-    const navigationState = useNavigationState(state => state);
-    const currentRouteIndex = navigationState.index;
-    const currentRouteName = navigationState.routes[currentRouteIndex].name;
-    console.log(currentRouteName)
     return (
         <Tab.Navigator
             screenOptions={{
@@ -25,55 +25,47 @@ export default function TabNavigation() {
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <View>
-                            {
-                                currentRouteName === 'Home'?
-                                    <Image source={require('../../assets/images/home.png')}/>
-                                    :
-                                    <Image source={require('../../assets/images/home_dark.png')}/>
-                            }
+                            <FontAwesome
+                                name="home"
+                                size={size}
+                                color={color}
+                            />
                         </View>
-                    ),
-                    tabBarLabel: ''
+                    )
                 }}
             />
-             <Tab.Screen
-                component={Home}
+            <Tab.Screen
+                component={Appoiment}
                 name="Appointment"
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <View>
-                           {
-                                currentRouteName === 'Appointment'?
-                                    <Image source={require('../../assets/images/calendar.png')}/>
-                                    :
-                                    <Image source={require('../../assets/images/calendar_dark.png')}/>
-                            }
+                            <FontAwesome
+                                name="calendar-o"
+                                size={size}
+                                color={color}
+                            />
                         </View>
-                    ),
-                    tabBarLabel: ''
+                    )
                 }}
             />
-             <Tab.Screen
-                component={LoginScreen}
+            <Tab.Screen
+                component={Profile}
                 name="Profile"
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <View>
-                           {
-                                currentRouteName === 'Profile'?
-                                    <Image source={require('../../assets/images/user.png')}/>
-                                    :
-                                    <Image source={require('../../assets/images/user_dark.png')}/>
-                            }
+                            <FontAwesome
+                                name="user-circle"
+                                size={size}
+                                color={color}
+                            />
                         </View>
-                    ),
-                    tabBarLabel: 'testing'
+                    )
                 }}
             />
         </Tab.Navigator>
     )
 }
 
-const styles = StyleSheet.create({
-
-})
+const styles = StyleSheet.create({})
