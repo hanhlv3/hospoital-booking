@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
 import React, { useEffect, useState, useRef } from 'react'
-import GlobalApi from '../Shared/GlobalApi'
+import GlobalApi from '../../api/GlobalApi'
 import { FlatList } from 'react-native'
 
 export default function Slider() {
