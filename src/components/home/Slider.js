@@ -12,7 +12,7 @@ export default function Slider() {
         const interval = setInterval(() => {
             const nextIndex = (currentIndex + 1) % sliders.length
             setCurrentIndex(nextIndex)
-        }, 5000)
+        }, 3500)
 
         return () => clearInterval(interval)
     }, [currentIndex, sliders.length])
@@ -32,7 +32,7 @@ export default function Slider() {
             return {
                 id: item.id,
                 name: item.attributes.Name,
-                image: item.attributes.image.data.attributes.formats.thumbnail
+                image: item.attributes.Image.data.attributes.formats.thumbnail
                     .url
             }
         })
@@ -40,6 +40,7 @@ export default function Slider() {
     }
 
     const ImageItem = ({item}) => {
+        
         return (
             <View>
                 <Image style={styles.image} source={{ uri: item?.image }} />
@@ -75,6 +76,6 @@ const styles = StyleSheet.create({
     image: {
         width: Dimensions.get('screen').width*0.9,
         height: 150,
-        borderRadius: 15,
+        borderRadius: 20,
     }
 })

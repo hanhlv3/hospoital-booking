@@ -6,6 +6,9 @@ const api = create({
 
 const getSlider = () => api.get('/sliders?populate=*')
 
+const getAllCategories = () => api.get('/categories?populate=*')
+
 export default {
     getSlider,
+    getAllCategories
 }

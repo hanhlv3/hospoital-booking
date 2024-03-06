@@ -25,16 +25,20 @@
             "favicon": "./assets/favicon.png"
         },
         "plugins": [
-            "expo-font",
-            {
-                "fonts": [
-                    "./assets/fonts/Outfit-Bold.ttf",
-                    "./assets/fonts/Outfit-Light.ttf",
-                    "./assets/fonts/Outfit-Medium.ttf",
-                    "./assets/fonts/Outfit-SemiBold.ttf",
-                    "./assets/fonts/Outfit-Regular.ttf"
-                ]
-            }
+            [
+
+                "expo-font",
+                {
+                    "fonts": [
+                        "./assets/fonts/Outfit-Bold.ttf",
+                        "./assets/fonts/Outfit-Light.ttf",
+                        "./assets/fonts/Outfit-Medium.ttf",
+                        "./assets/fonts/Outfit-SemiBold.ttf",
+                        "./assets/fonts/Outfit-Regular.ttf"
+                    ]
+                }
+            ]
+            
         ]
     }
 }
