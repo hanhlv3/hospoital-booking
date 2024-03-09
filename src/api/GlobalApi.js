@@ -8,7 +8,16 @@ const getSlider = () => api.get('/sliders?populate=*')
 
 const getAllCategories = () => api.get('/categories?populate=*')
 
+const getHospitalPremiums = () => api.get('/hospitals?filters[premium][$eq]=true&populate=*') 
+
+const getHospitalByCategory = (categoryName) => api.get(`/hospitals?filters[categories][name][$in]=${categoryName}&populate=*`)
+
+const getDoctorByCategory = (categoryName) => api.get(`/doctors?docfilters[category][name][$in]=${categoryName}&populate=*`)
+
 export default {
     getSlider,
-    getAllCategories
+    getAllCategories,
+    getHospitalPremiums,
+    getHospitalByCategory,
+    getDoctorByCategory,
 }

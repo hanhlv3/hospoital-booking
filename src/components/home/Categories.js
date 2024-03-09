@@ -1,9 +1,14 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import GlobalApi from '../../api/GlobalApi'
 import { FlatList } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 export default function Categories() {
+
+
+    const navigation = useNavigation()
+
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
@@ -24,10 +29,13 @@ export default function Categories() {
 
     const CategoryItem = ({ item }) => {
         return (
-            <View
+            <TouchableOpacity
                 style={{
                     alignItems: 'center'
                 }}
+                onPress={() => navigation.navigate('HospitalDoctor', {
+                    categoryName: item.name
+                })}
             >
                 <View
                     style={{
@@ -42,7 +50,7 @@ export default function Categories() {
                     />
                 </View>
                 <Text>{item.name}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 

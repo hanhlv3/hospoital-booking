@@ -10,6 +10,7 @@ import Home from '../screens/Home'
 import LoginScreen from '../screens/LoginScreen'
 import Profile from '../screens/Profile'
 import Appoiment from '../screens/Appoiment'
+import HomeNavigation from './HomeNavigation'
 
 const Tab = createBottomTabNavigator()
 export default function TabNavigation() {
@@ -20,8 +21,8 @@ export default function TabNavigation() {
             }}
         >
             <Tab.Screen
-                component={Home}
-                name="Home"
+                component={HomeNavigation}
+                name="HomeNavigation"
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <View>

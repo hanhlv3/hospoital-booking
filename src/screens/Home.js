@@ -4,6 +4,7 @@ import Header from '../components/home/Header'
 import Search from '../components/home/Search'
 import Slider from '../components/home/Slider'
 import Categories from '../components/home/Categories'
+import PremiumHospitals from '../components/home/PremiumHospitals'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Search setSearchText={(value) => console.log(value)} />
       <Slider />
       <Categories />
+      <PremiumHospitals />
     </View>
   )
 }
