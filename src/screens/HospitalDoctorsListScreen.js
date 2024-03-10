@@ -32,7 +32,8 @@ export default function HospitalDoctorsListScreen() {
                 name: item.attributes.name,
                 address: item.attributes.address,
                 image: item.attributes.image.data.attributes.url,
-                categories: item.attributes.categories.data
+                categories: item.attributes.categories.data,
+                desc: item.attributes.description
             }
         })
 

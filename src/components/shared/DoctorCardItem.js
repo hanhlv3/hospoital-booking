@@ -42,7 +42,7 @@ export default function DoctorCardItem({ doctor }) {
                         />
                         <Text
                             style={{
-                                fontFamily: 'appfont-regular',
+                                fontFamily: 'appfont',
                                 fontSize: 16,
                                 color: Color.Primary
                             }}
@@ -97,7 +97,7 @@ export default function DoctorCardItem({ doctor }) {
                 <Text
                     style={{
                         fontFamily: 'appfont-bold',
-                        fontSize: '16px',
+                        fontSize: 16,
                         color: Color.Primary
                     }}
                 >
