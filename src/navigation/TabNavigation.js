@@ -5,12 +5,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { useNavigationState } from '@react-navigation/native'
 import { FontAwesome } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons';
 
 import Home from '../screens/Home'
 import LoginScreen from '../screens/LoginScreen'
 import Profile from '../screens/Profile'
 import Appoiment from '../screens/Appoiment'
 import HomeNavigation from './HomeNavigation'
+import Explores from '../screens/Explores'
 
 const Tab = createBottomTabNavigator()
 export default function TabNavigation() {
@@ -31,6 +33,17 @@ export default function TabNavigation() {
                                 size={size}
                                 color={color}
                             />
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen
+                component={Explores}
+                name="Explore"
+                options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <View>
+                            <Ionicons name="search-outline" size={size} color={color} />
                         </View>
                     )
                 }}

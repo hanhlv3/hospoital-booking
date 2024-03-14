@@ -10,12 +10,17 @@ import React, { useEffect, useState } from 'react'
 import Color from '../../shared/Color'
 import SubHeading from '../shared/SubHeading'
 import moment from 'moment'
+import { useUser } from '@clerk/clerk-expo'
+import GlobalApi from '../../api/GlobalApi'
 
-export default function BookingSection() {
+export default function BookingSection({ hospital }) {
+    const { isLoaded, isSignedIn, user } = useUser()
+
     const [nextSevenDays, setnextSevenDays] = useState([])
     const [timeList, setTimList] = useState([])
     const [selectedDate, setSelectedDate] = useState()
     const [selectedTime, setSelectedTime] = useState()
+    const [note, setNote] = useState()
 
     useEffect(() => {
         getDays()
@@ -59,6 +64,22 @@ export default function BookingSection() {
         }
         setTimList(timeList)
     }
+
+    const bookAppointment = async () => {
+        const data = {
+            data: {
+                UserName: user.fullName,
+                Date: selectedDate,
+                Time: selectedTime,
+                Email: user.primaryEmailAddress.emailAddress,
+                hospitals: hospital.id,
+                Note: note
+            }
+        }
+        const res = await GlobalApi.createAppointment(data)
+        setNote('')
+    }
+
     return (
         <View>
             <Text style={{ fontSize: 16, color: Color.Gray, marginBottom: 10 }}>
@@ -146,6 +167,7 @@ export default function BookingSection() {
 
             <SubHeading title={'Note'} seeAll={false} />
             <TextInput
+                onChangeText={(text) => setNote(text)}
                 numberOfLines={5}
                 style={{
                     backgroundColor: Color.Light_Gray,
@@ -173,11 +195,7 @@ export default function BookingSection() {
                     marginBottom: 10,
                     zIndex: 20
                 }}
-                onPress={() =>
-                    navigation.navigate('BookAppointment', {
-                        hospital: hospital
-                    })
-                }
+                onPress={() => bookAppointment()}
             >
                 <Text
                     style={{
